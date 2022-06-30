@@ -15,11 +15,17 @@ use App\Models\Listing;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+//All Listings
 Route::get('/', function () {
     return view('listings', [
         'heading' => 'Latest Listings',
         'listings' => Listing::all()//pulls in data from the listing.php in the models folder.
+    ]);
+});
+
+Route::get('/listings/{id}', function ($id) {
+    return view('listing', [
+        'listing' => Listing::find($id)//pulls in data from the listing.php in the models folder.
     ]);
 });
 
