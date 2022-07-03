@@ -23,10 +23,31 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/listings/{id}', function ($id) {
-    return view('listing', [
-        'listing' => Listing::find($id)//pulls in data from the listing.php in the models folder.
-    ]);
+// Route::get('/listings/{id}', function ($id) {
+//     return view('listing', [
+//         'listing' => Listing::find($id)//pulls in data from the listing.php in the models folder.
+//     ]);
+// });
+// Route::get('/listings/{id}', function ($id) {
+//     $listing = Listing::find($id);
+
+//     if($listing) {
+//         return view('listing', [
+//             'listing' => $listing
+//         ]);
+//     } else {
+//         abort('404');
+//     }
+
+// });
+Route::get('/listings/{listing}', function (Listing $listing) {
+     
+        return view('listing', [
+            'listing' => $listing
+        ]);
+        //with route model binding Listing $listing automatically checks for the listing and returns an error 
+        //if the listing is not found.
+  
 });
 
 // Route::get('hello', function(){

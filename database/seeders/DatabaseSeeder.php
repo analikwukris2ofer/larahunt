@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
         //this code above will create 10 dummy users. This comes from the UserFactory.php file
 
         Listing::factory(6)->create();
+         //this code above will create 10 dummy users. This comes from the ListingFactory.php file
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
